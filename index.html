@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("FNifob4UfIARHoAET");
+   })();
+</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charles Andrews</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <nav>
+        <figure>
+          <img
+            id="personal-logo"
+            src="./assests/Charles andrews logo.jpg"
+            alt=""
+          />
+        </figure>
+        <ul class="nav__link--list">
+          <li class="nav__link "  onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >About</a
+            >
+          </li>
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Project</a
+            >
+          </li>
+          <li class="nav__link " onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a
+            >
+          </li>
+          <li class="nav__link click">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              ><i class="fas fa-adjust" onclick="toggleContrast()"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Hey</h1>
+          <h1 class="title green">I'm Charles</h1>
+          <p class="header__para">
+            I'm a <b class="green"> frontend software engineer </b> with a
+            passion for making user-friendly experiences and responsive web
+            design.
+            <br />
+            Here's a bit more <b class="green click" onclick="toggleModal()">about me</b>
+          </p>
+          <div class="social__list">
+            <a href="" class="social__link click">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="" class="social__link click">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="" class="social__link click">
+              <i class="fas fa-file-pdf"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">    
+          <i class="fas fa-envelope"></i>
+        </button>
+      </a>
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about me.
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software engineer
+          </h4>
+          <p class="modal__para">
+            I'm a 20 year-old Australian
+            <b class="green">Frontend software engineer</b> with a drive
+            to deliver great <b class="green"> user experinces</b> <br />
+            I pride myself in solving engineering problems effectively and
+            efficently by continuing to <b class="green"> learn independently </b> or within a <b class="green">team
+            enviroment</b> to achieve the best outcome.
+          </p>
+          <div class="modal__languages">
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt=""
+                
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt=""
+                
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt=""
+                
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                class="modal__language--img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt=""
+                
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title  modal__title--contact">
+            Lets have a chat
+          </h3>
+          <h3 class="modal__sub-title  modal__sub-title--contact">
+            I would love to hear from you
+          </h3>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label" >Name</label>
+              <input class="input" name="user_name" type="text" required></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label" >Email</label>
+              <input class="input" name="user_email" type="email" required></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label" >Message</label>
+              <textarea class="input" name="user_message" type="text" required></textarea>
+            </div>
+            <button id="contact__sumbit" class="form__sumbit">SEND IT</button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message. 
+          </div>
+        </div>
+      </div>
+      <div class="shape__container">
+        <img src="./assests/circle.svg" class="shape shape--0">
+        <img src="./assests/semi circle.svg" class="shape shape--1">
+        <img src="./assests/squiggly.svg" class="shape shape--2">
+        <img src="./assests/triangle.svg" class="shape shape--3">
+        <img src="./assests/semi circle.svg" class="shape shape--4">
+        <img src="./assests/squiggly.svg" class="shape shape--5">
+        <img src="./assests/triangle.svg" class="shape shape--6">
+        <img src="./assests/circle.svg" class="shape shape--7">
+        <img src="./assests/triangle.svg" class="shape shape--8">
+      </div>
+    </section>
+    <section class="" id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="green">Projects</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project"></li>
+            <div class="project__wrapper">
+              <img
+                src="./assests/1622186236fS0vx7R61C.png"
+                class="project__img"
+                alt=""
+              />
+              <div class="project__wrapper--bg"></div>
+              <div class="project__description">
+                <h3 class="project__description--title">My Project</h3>
+                <h4 class="project__description--sub--title">
+                  Html, CSS, JavaScript, Vue, Vuex
+                </h4>
+                <p class="project__description--para">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Facilis beatae sunt commodi, mollitia accusantium esse
+                  deleniti, aliquam tempora iure deserunt dolores ducimus et,
+                  ipsum sequi placeat consequuntur! Rem, quod labore?
+                </p>
+                <div class="project__description--links">
+                  <a href="#" class="project__description--link">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="project__description--link">
+                    <i class="fas fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <ul class="project__list">
+            <li class="project"></li>
+            <div class="project__wrapper">
+              <img
+                src="./assests/1622186236fS0vx7R61C.png"
+                class="project__img"
+                alt=""
+              />
+              <div class="project__wrapper--bg"></div>
+              <div class="project__description">
+                <h3 class="project__description--title">My Project</h3>
+                <h4 class="project__description--sub--title">
+                  Html, CSS, JavaScript, Vue, Vuex
+                </h4>
+                <p class="project__description--para">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Facilis beatae sunt commodi, mollitia accusantium esse
+                  deleniti, aliquam tempora iure deserunt dolores ducimus et,
+                  ipsum sequi placeat consequuntur! Rem, quod labore?
+                </p>
+                <div class="project__description--links">
+                  <a href="#" class="project__description--link">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="project__description--link">
+                    <i class="fas fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <ul class="project__list">
+            <li class="project"></li>
+            <div class="project__wrapper">
+              <img
+                src="./assests/1622186236fS0vx7R61C.png"
+                class="project__img"
+                alt=""
+              />
+              <div class="project__wrapper--bg"></div>
+              <div class="project__description">
+                <h3 class="project__description--title">My Project</h3>
+                <h4 class="project__description--sub--title">
+                  Html, CSS, JavaScript, Vue, Vuex
+                </h4>
+                <p class="project__description--para">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Facilis beatae sunt commodi, mollitia accusantium esse
+                  deleniti, aliquam tempora iure deserunt dolores ducimus et,
+                  ipsum sequi placeat consequuntur! Rem, quod labore?
+                </p>
+                <div class="project__description--links">
+                  <a href="#" class="project__description--link">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="project__description--link">
+                    <i class="fas fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container footer__container">
+        <div class="row footer__row">
+          <figure class="footer__logo">
+            <img
+              src="./assests/Charles andrews logo.jpg"
+              alt=""
+              class="footer__logo"
+            />
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Github
+            </a>
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Linkedln
+            </a>
+            <a
+              href="#" onclick="toggleModal()"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Contact
+            </a>
+            <a
+              href="#" 
+              class="footer__social--link link__hover-effect link__hover-effect--white " 
+            >
+              Resume
+            </a>
+          </div>
+          <div class="footer__copyright">Copyright &copy; Charles Andrews</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
